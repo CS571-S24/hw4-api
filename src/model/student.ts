@@ -21,6 +21,6 @@ export class Student {
         this.numCredits = numCredits;
         this.major = major;
         this.interests = [...interests];
-        this.id = crypto.createHash('sha256').update(name.first + " " + name.last).digest('hex').substring(0, 24);
+        this.id = crypto.createHash('sha256').update(name.first + " " + name.last + String(this.fromWisconsin) + major + this.interests.reduce((p, c) => p + c, "")).digest('hex').substring(0, 24);
     }
 }
